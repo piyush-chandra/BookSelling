@@ -38,5 +38,5 @@ public class Wishlist {
         joinColumns = @JoinColumn(name = "wishlistId"),
         inverseJoinColumns = @JoinColumn(name = "bookId")
     )
-    private List<Book> books = new ArrayList<>();
+    private List<Book> books;
 }

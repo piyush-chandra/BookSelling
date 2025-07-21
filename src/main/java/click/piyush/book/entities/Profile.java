@@ -11,8 +11,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,11 +18,9 @@ import lombok.ToString;
 
 @Entity
 @ToString
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Profile  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +28,8 @@ public class Profile  {
 
     @OneToOne(mappedBy = "profile", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Users user;
+
+    // response as entity ~ check json managed reference
 
     private Gender gender;
     private Date DOB;

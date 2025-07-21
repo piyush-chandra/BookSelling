@@ -16,6 +16,8 @@ public abstract class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long itemId;
+
+    // Add Book here
     
     private String quantity;
     private Double price;
