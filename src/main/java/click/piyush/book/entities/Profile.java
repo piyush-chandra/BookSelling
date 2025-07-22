@@ -3,9 +3,13 @@ package click.piyush.book.entities;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import click.piyush.book.enums.Gender;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,11 +31,11 @@ public class Profile  {
     private Long profileId;
 
     @OneToOne(mappedBy = "profile", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonBackReference
     private Users user;
 
-    // response as entity ~ check json managed reference
-
+    @Enumerated(EnumType.STRING)
     private Gender gender;
+
     private Date DOB;
-    //more fields can be added as needed
 }

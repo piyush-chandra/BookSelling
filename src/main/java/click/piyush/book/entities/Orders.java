@@ -4,6 +4,9 @@ package click.piyush.book.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,17 +35,21 @@ public class Orders {
     
     @ManyToOne
     @JoinColumn(name = "userId", referencedColumnName = "userId")
+    @JsonBackReference
     private Users user;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<OrderItem> orderItems = new ArrayList<>();
+    @JsonManagedReference
+    private List<OrderItem> orderItems ;
 
     @OneToOne
     @JoinColumn(name = "shippingAddressId", referencedColumnName = "addressId")
-    private Address shippingAddress;
+    @JsonManagedReference
+    private ShippingAddress shippingAddress;
 
     private Double totalAmount;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Payment> payments = new ArrayList<>();
 }

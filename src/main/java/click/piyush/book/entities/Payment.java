@@ -1,5 +1,7 @@
 package click.piyush.book.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,5 +32,6 @@ public class Payment {
 
     @ManyToOne
     @JoinColumn(name = "orderId", referencedColumnName = "orderId")
+    @JsonBackReference
     private Orders order;
 }

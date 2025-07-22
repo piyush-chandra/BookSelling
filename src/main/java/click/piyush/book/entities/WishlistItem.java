@@ -16,9 +16,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
-public class OrderItem extends Item {
+@AllArgsConstructor
+public class WishlistItem extends Item {
 
     @OneToOne
     @JoinColumn(name = "editionId", referencedColumnName = "editionId")
@@ -26,6 +26,8 @@ public class OrderItem extends Item {
     private BookEdition bookEdition;
 
     @ManyToOne
-    @JoinColumn(name = "orderId", referencedColumnName = "orderId")
-    private Orders order;
+    @JoinColumn(name = "wishlistId", referencedColumnName = "wishlistId")
+    @JsonBackReference
+    private Wishlist wishlist;
+    
 }

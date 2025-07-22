@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-    
-    @PostMapping("signup")
-    public String userSignUp(@RequestBody String entity) {
-        
-        
-        return entity;
-    }
 
     @PostMapping("login")
     public String userLogin(@RequestBody String entity) {
         return entity;  
     }
+
+    @PostMapping("/logout")
+    public String logout(@RequestBody String entity) {
+        // Logic to handle user logout        
+        return entity;
+    }
+    
     
 }

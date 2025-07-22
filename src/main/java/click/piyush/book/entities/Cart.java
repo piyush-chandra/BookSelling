@@ -2,6 +2,9 @@ package click.piyush.book.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,9 +32,11 @@ public class Cart {
 
     @OneToOne
     @JoinColumn(name = "userId", referencedColumnName = "userId")
+    @JsonBackReference
     private Users user;
     
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CartItem> items;
+    @JsonManagedReference
+    private List<CartItem> cartItems;
 
 }
