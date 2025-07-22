@@ -1,5 +1,7 @@
 package click.piyush.book.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,6 +27,7 @@ public class BookEdition {
 
     @ManyToOne
     @JoinColumn(name = "bookId", referencedColumnName = "bookId")
+    @JsonBackReference
     private Book book;
 
     private String quantity;
@@ -32,5 +35,3 @@ public class BookEdition {
     private String edition;
     private String URI;
 }
-
-// // not have the option of language and pubilsher

@@ -1,6 +1,5 @@
 package click.piyush.book.entities;
 
-import java.util.List;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

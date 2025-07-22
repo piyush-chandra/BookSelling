@@ -1,11 +1,12 @@
 package click.piyush.book.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.JoinColumn;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class Address {
     
     @ManyToOne
     @JoinColumn(name = "userId", referencedColumnName = "userId")
+    @JsonBackReference
     private Users user;
 
     private String street;
@@ -33,8 +35,4 @@ public class Address {
     private String country;
     private String zipCode;
 
-    @OneToOne(mappedBy = "shippingAddress")
-    private Orders order;
-
-    // Add aother class shipping Address
 }

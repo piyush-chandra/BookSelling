@@ -26,6 +26,8 @@ public class OrderItem extends Item {
     @JoinColumn(name = "orderId", referencedColumnName = "orderId")
     private Orders order;
 
+
+    // need to check this.
     @ManyToMany
     @JoinTable(
         name = "ordered_books",
