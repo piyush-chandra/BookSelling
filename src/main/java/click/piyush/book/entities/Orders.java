@@ -40,7 +40,7 @@ public class Orders {
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<OrderItem> orderItems = new ArrayList<>();
+    private List<OrderItem> orderItems ;
 
     @OneToOne
     @JoinColumn(name = "shippingAddressId", referencedColumnName = "addressId")

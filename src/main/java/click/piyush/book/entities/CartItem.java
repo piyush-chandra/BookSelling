@@ -1,12 +1,11 @@
 package click.piyush.book.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.JoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,18 +20,14 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class CartItem extends Item {
+
+    @OneToOne
+    @JoinColumn(name = "editionId", referencedColumnName = "editionId")
+    @JsonBackReference
+    private BookEdition bookEdition;
     
     @ManyToOne
     @JoinColumn(name = "cartId", referencedColumnName = "cartId")
+    @JsonManagedReference
     private Cart cart;
-
-    @ManyToMany
-    @JoinTable(
-        name = "cart_books",
-        joinColumns = @JoinColumn(name = "cartId"),
-        inverseJoinColumns = @JoinColumn(name = "bookId")
-    )
-    private List<Book> books = new ArrayList<>();
-
-    
 }

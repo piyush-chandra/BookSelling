@@ -1,6 +1,5 @@
 package click.piyush.book.entities;
 
-
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,8 +14,6 @@ public abstract class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long itemId;
-
-    // Add Book here
     
     private String quantity;
     private Double price;
