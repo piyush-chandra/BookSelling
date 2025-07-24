@@ -5,3 +5,16 @@
 5. // One to Many relationship with OrderItem and CartItem ~ Done
 6. // Add Book here in Item ~ Done ~ Bad Idea
 7. // many to one ~ Done
+
+
+-------------------------------------------
+
+1. bloom filter for quickly find user
+2. API Gateway - health working now
+3. signup and login
+4. crud on book, check on usertype
+5. crud on wishlist
+6. crud on cart
+7. crud on order
+8. last payment
+
