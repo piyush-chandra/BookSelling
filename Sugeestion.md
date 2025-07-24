@@ -7,7 +7,7 @@
 7. // many to one ~ Done
 
 
--------------------------------------------
+-------------------Plan------------------------
 
 1. bloom filter for quickly find user
 2. API Gateway - health working now
@@ -18,3 +18,7 @@
 7. crud on order
 8. last payment
 
+------------------------------------------
+1. explore modulith more and see where i am implement that ~ somewhere in notification
+2. have to use locking
+3. 

@@ -1,22 +1,26 @@
 package click.piyush.book.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import click.piyush.book.dto.UserRegisterRequest;
+import click.piyush.book.dto.UserRegisterResponse;
+import click.piyush.book.service.UserService;
 
 @RestController
-@RequestMapping("/user")
 public class UserControlller {
+
+    @Autowired
+    private UserService userService;
     
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody UserRegisterRequest registrationDto) {
-
-        return ResponseEntity.ok("User registered successfully");
+        UserRegisterResponse registerResponse = userService.registerUser(registrationDto);
+        return ResponseEntity.ok(registerResponse);
     }
 
     @GetMapping("/address")

@@ -47,7 +47,7 @@ public class Users {
     private String password;
     
     @Enumerated(EnumType.STRING)
-    private UserRole role;
+    private UserRole role = UserRole.CUSTOMER;
 
     @Enumerated(EnumType.STRING)
     private UserStatus userStatus;
@@ -75,6 +75,10 @@ public class Users {
         this.password = builder.password;
         this.role = builder.role;
         this.userStatus = builder.userStatus; 
+    }
+
+    public static Builder Builder() {
+        return new Builder();
     }
 
     public static class Builder {
